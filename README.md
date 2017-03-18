@@ -1,147 +1,162 @@
-# ProdJhipsTest
-This application was generated using JHipster 4.0.6, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.0.6](https://jhipster.github.io/documentation-archive/v4.0.6).
+Softwares we need to install:
+1)Java8 with env path
 
-## Development
+2)Node js (npm comes along with it)
 
-Before you can build this project, you must install and configure the following dependencies on your machine:
+3)Yeoman
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
-   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+4)Git
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in `package.json`.
+5)Heroku
+=============
+1)Install Java 8 from the Oracle website.
 
-    npm install
+2)Whether you choose to use Maven or Gradle, you normally don’t have to install anything, as JHipster will automatically install the Maven Wrapper or the Gradle Wrapper for you.
+If you don’t want to use those wrappers, go to the official Maven website or Gradle website to do your own installation.
 
-We use npm scripts and [Webpack][] as our build system.
+3)Install Git from git-scm.com.
 
+3) Install Node.js from the Node.js website (https://nodejs.org/en/ prefer an LTS version). This will also install npm, which is the node package manager we are using in the next commands.
+(Recommended) Update NPM: npm install -g npm
 
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
-
-    ./gradlew
-    npm start
-
-[Npm][] is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
-specifying a newer version in `package.json`. You can also run `npm update` and `npm install` to manage dependencies.
-Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
-
-The `npm run` command will list all of the scripts available to run for this project.
-
-### Managing dependencies
-
-For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
-
-    npm install --save --save-exact leaflet
-
-To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
-
-    npm install --save-dev --save-exact @types/leaflet
-
-Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
-
-Edit `src/main/webapp/app/vendor.ts`file:
-~~~
-import 'leaflet/dist/leaflet.js';
-~~~
-
-Edit `src/main/webapp/content/css/vendor.css` file:
-~~~
-@import '~leaflet/dist/leaflet.css';
-~~~
-
-Note: there are still few other things remaining to do for Leaflet that we won't detail here.
-
-For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-### Using angular-cli
-
-You can also use [Angular CLI][] to generate some custom client code.
-
-For example, the following command:
-
-    ng generate component my-component
-
-will generate few files:
-
-    create src/main/webapp/app/my-component/my-component.component.html
-    create src/main/webapp/app/my-component/my-component.component.ts
-    update src/main/webapp/app/app.module.ts
-
-## Building for production
-
-To optimize the ProdJhipsTest application for production, run:
-
-    ./gradlew -Pprod clean bootRepackage
-
-This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
-To ensure everything worked, run:
-
-    java -jar build/libs/*.war
-
-Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
-
-Refer to [Using JHipster in production][] for more details.
-
-## Testing
-
-To launch your application's tests, run:
-
-    ./gradlew test
-
-### Client tests
-
-Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in `src/test/javascript/` and can be run with:
-
-    npm test
+4)Install Yeoman: npm install -g yo
 
 
+5) Install JHipster: npm install -g generator-jhipster(code generator)
+There are around 3500 code generator tools. Jhipster is one of the popular tool.
 
-For more information, refer to the [Running tests page][].
+============
 
-## Using Docker to simplify development (optional)
+Creating an Jhipster application:
+1)mkdir myapplication(your application name)
 
-You can use Docker to improve your JHipster development experience. A number of docker-compose configuration are available in the `src/main/docker` folder to launch required third party services.
-For example, to start a postgresql database in a docker container, run:
+Go to that directory:
 
-    docker-compose -f src/main/docker/postgresql.yml up -d
+2)cd myapplication or your application /
 
-To stop it and remove the container, run:
+3)  generate your application, type:
+execute this command and create the project by following the questions 
+ $ yo jhipster
+ 
+ 
+ =======================
+ Integrate it with IDE:
+ 
+ Import this project into Eclipse. No need to configure any servers.If gradle you have to add required eclipse plugins currently it is Buildship gradle integration(elephant icon)
+ 
+ To run the application :
+ if you are using Maven then execute the cmd :  $ mvnw  (for backend)
+ if you are using Gradle then execute the cmd :  $ gradlew  (for backend)
+ 
+ To make client up and running execute these commands: $ npm install and $ npm start
+ 
+ =====================
+ 
+ Depending upon the DB you select you might probably need a local DB server installation for local testing.
+ 
+ Currently we tried PostGresSQL. To install in your machine visit this link(Check the below note before installing) https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#windows
+ 
+ After succesfull installation click Start(windows) button -> click PostGresql folder -> click Pgadmin4--> click on servers -->databases  ->right click create database
+ 
+ Note: 
+ 1)While installing it will ask for a location dont let it installed in "ProgramFiles" instead create a new folder in any drive and point to it.
+ Eg: C:\Satya\PostGresSQL(I used this location on my machine)
+ 2)Remember your password you specify during installation(By default username would be "postgres")
+ 
+ =====================
+ To use an existing project on bitbucket to get hands on default Jhipster generated project:
+ 
+ clone this location using git: https://satyaghanta@bitbucket.org/satyaghanta/prodjhipstest.git  (master branch)
+ 
+ After cloning: 
+ change it to git branch using this command (branch exists on bitbucket, probably you need to create bit bucket account)
+ "git checkout prodjhpstestbranch1"
+ 
+ Import the project to eclipse as gradle project and to connect to DB go to "src/main/resources/config/application-dev.yml"
+ change the following lines at line # 28
+  url: jdbc:postgresql://localhost:5432/(your database name which you created aboe)
+        username: postgres
+        password: (your password mentioned during installation)
+ 
+ 
+ ===========================
+ Heroku:cloud deployment
+ 
+ Signup on Heroku : https://id.heroku.com/login
+ Download the Heroku client at https://devcenter.heroku.com/articles/getting-started-with-jruby#set-up
+ click the "Download the Heroku client"
+ This will let you to use the Heroku commands in your commnad prompt.
+ 
 
-    docker-compose -f src/main/docker/postgresql.yml down
+ Execute this command:
+ 
+ $ heroku login
+ 
+ enter your credenntials.
+ 
+ Using Yo and Jhipster we can deploy using this command 
+ $ yo jhipster:heroku
+ 
+ 
+ 
+ But to push it to production it is a good idea to maintain our code in some repository system. Git is ideal for it:
+ 
+ Using Git:
+ Create a new repository by logging into github, which will create a git url which points to the git remote location like below
+ https://satyaghanta@bitbucket.org/satyaghanta/prodjhipstest.git
+ 
+ ============================
+ Some usefull git commands to work in local
+ 
+# initialize the your local repository with Git
+# for the current directory
+$ git init
 
-You can also fully dockerize your application and all the services that it depends on.
-To achieve this, first build a docker image of your app by running:
+# add all files to the index of the Git repository or also know as staging
+$ git add .
 
-    ./gradlew bootRepackage -Pprod buildDocker
+# commit your file to the local repository
+$ git commit -m "Initial commit"
 
-Then run:
+#Add local repo to Remote using the above url
 
-    docker-compose -f src/main/docker/app.yml up -d
+$  git remote add origin https://github.com/satyanarayanaghanta/testappgit.git
 
-For more information refer to [Using Docker and Docker-Compose][], this page also contains information on the docker-compose sub-generator (`yo jhipster:docker-compose`), which is able to generate docker configurations for one or several JHipster applications.
+Then push your chnages to remote which creates a default branch which is the master also the central repo for your local repo.
 
-## Continuous Integration (optional)
+$ git push origin master
 
-To set up a CI environment, consult the [Setting up Continuous Integration][] page.
+You should not work on this master. To make changes in your local you have to create a branch. 
+So create a branch:
+Create new branch
+"master" is the default branch
+# syntax: git branch <name> 
+$ git branch testappgitbranch
 
-[JHipster Homepage and latest documentation]: https://jhipster.github.io
-[JHipster 4.0.6 archive]: https://jhipster.github.io/documentation-archive/v4.0.6
+Switch to branch:
+$ git checkout <branch name>
 
-[Using JHipster in development]: https://jhipster.github.io/documentation-archive/v4.0.6/development/
-[Using Docker and Docker-Compose]: https://jhipster.github.io/documentation-archive/v4.0.6/docker-compose
-[Using JHipster in production]: https://jhipster.github.io/documentation-archive/v4.0.6/production/
-[Running tests page]: https://jhipster.github.io/documentation-archive/v4.0.6/running-tests/
-[Setting up Continuous Integration]: https://jhipster.github.io/documentation-archive/v4.0.6/setting-up-ci/
+and you can make changes and you can commit and push code 
+
+Later switch to Git Master:
+
+$ git checkout master
+
+$ git pull -->to get the latest code
+
+then
+$ git checkout <branch name>
+
+$ git merge master
 
 
-[Node.js]: https://nodejs.org/
-[Yarn]: https://yarnpkg.org/
-[Webpack]: https://webpack.github.io/
-[Angular CLI]: https://cli.angular.io/
-[BrowserSync]: http://www.browsersync.io/
-[Karma]: http://karma-runner.github.io/
-[Jasmine]: http://jasmine.github.io/2.0/introduction.html
-[Protractor]: https://angular.github.io/protractor/
-[Leaflet]: http://leafletjs.com/
-[DefinitelyTyped]: http://definitelytyped.org/
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
