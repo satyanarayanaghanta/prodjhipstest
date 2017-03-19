@@ -66,7 +66,7 @@ execute this command and create the project by following the questions
  =====================
  To use an existing project on bitbucket to get hands on default Jhipster generated project:
  
- clone this location using git: https://satyaghanta@bitbucket.org/satyaghanta/prodjhipstest.git  (master branch)
+ clone this location using git: git clone https://satyaghanta@bitbucket.org/satyaghanta/prodjhipstest.git  (master branch)
  
  After cloning: 
  change it to git branch using this command (branch exists on bitbucket, probably you need to create bit bucket account)
@@ -120,7 +120,7 @@ $ git commit -m "Initial commit"
 
 #Add local repo to Remote using the above url
 
-$  git remote add origin https://github.com/satyanarayanaghanta/testappgit.git
+$  git remote add origin https://satyaghanta@bitbucket.org/satyaghanta/prodjhipstest.git
 
 Then push your chnages to remote which creates a default branch which is the master also the central repo for your local repo.
 
