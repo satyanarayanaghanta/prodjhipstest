@@ -102,8 +102,11 @@ execute this command and create the project by following the questions
  But to push it to production it is a good idea to maintain our code in some repository system. Git is ideal for it:
  
  Using Git:
- Create a new repository by logging into github, which will create a git url which points to the git remote location like below
+ Create a new repository by logging into bitbucket, which will create a git url which points to the git remote location like below
  https://satyaghanta@bitbucket.org/satyaghanta/prodjhipstest.git
+ 
+ Configure SSH using following link:
+ https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
  
  ============================
  Some usefull git commands to work in local
